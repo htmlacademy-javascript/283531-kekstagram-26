@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Anna Ayvazyan](https://up.htmlacademy.ru/javascript/26/user/283531).
-* Наставник: `Неизвестно`.
+* Наставник: [Полина Шнайдер](https://htmlacademy.ru/profile/id1178327).
 
 ---
 
