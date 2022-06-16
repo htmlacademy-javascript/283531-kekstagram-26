@@ -1,10 +1,10 @@
 // Функция, возвращающая случайное целое число из переданного диапазона включительно.
 const randomInteger = function (min, max) {
-  if (min >= 0 && max >= 0 && min <= 10 && max <= 10) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  }
-  return ('range does not match, please try numbers from 0 to 10 inclusive');
 
+  if (min >= max) {
+    return ('range does not match, please try numbers from 0 to 10 inclusive');
+  }
+  return Math.floor(Math.random() * (max - min + 1) + min);
 };
 randomInteger(0, 10);
 
@@ -15,10 +15,6 @@ const maxStringLength = function (testString, maxLength) {
   for (let i = 0; i <= testString.length; i++) {
     stringLength++;
   }
-  if (stringLength <= maxLength) {
-    return true;
-  } else {
-    return false;
-  }
+  return stringLength <= maxLength;
 };
 maxStringLength('Hello world', 140);
