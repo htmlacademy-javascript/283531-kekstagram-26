@@ -94,6 +94,4 @@ const photoDescription = () => ({
   comments: getRandomArrayElement(comments),
 });
 
-const similarUsers = Array.from({length: 25}, photoDescription);
-
-// console.log (similarComments)
+Array.from({length: 25}, photoDescription); // log this
