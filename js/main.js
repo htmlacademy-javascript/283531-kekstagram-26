@@ -41,9 +41,6 @@ const urls = ['photos/1.jpg', 'photos/2.jpg', 'photos/3.jpg', 'photos/4.jpg', 'p
 const descriptions = [
   'My 1 photo', 'My 2 photo', 'My 3 photo', 'My 4 photo', 'My 5 photo', 'My 6 photo', 'My 7 photo', 'My 8 photo', 'My 9 photo', 'My 10 photo', 'My 11 photo', 'My 12 photo', 'My 13 photo', 'My 14 photo', 'My 15 photo', 'My 16 photo', 'My 17 photo', 'My 18 photo', 'My 19 photo', 'My 20 photo', 'My 21 photo', 'My 22 photo', 'My 23 photo', 'My 24 photo', 'My 25 photo'];
 
-const likes = [];
-
-const commentsIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
 const avatars = ['img/avatar-1.svg', 'img/avatar-2.svg', 'img/avatar-3.svg', 'img/avatar-4.svg', 'img/avatar-5.svg', 'img/avatar-6.svg',];
 
