@@ -1,3 +1,5 @@
+import {getRandomArrayElement, getRandomInteger} from './utils.js';
+
 const NUM_OF_COMMENTS = 25;
 
 let a = 0;
@@ -8,12 +10,7 @@ const getGenerateId = () => {
 };
 
 // Функция, возвращающая случайное целое число из переданного диапазона включительно.
-const getRandomInteger = function (min, max) {
-  if (min >= max) {
-    return ('range does not match, please try numbers from 0 to 10 inclusive');
-  }
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
+
 getRandomInteger(0, 10);
 
 // Функция для проверки максимальной длины строки. Будет использоваться для проверки длины введённого комментария, но должна быть универсальна. Пример использования функции:
@@ -32,7 +29,6 @@ const cutArrayElement = (arr) => {
   const generateNumber = getRandomInteger(0, arr.length - 1);
   return arr.splice(generateNumber, 1)[0];
 };
-const getRandomArrayElement = (element) => element[getRandomInteger(0, element.length - 1)];
 
 const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25];
 
@@ -91,4 +87,4 @@ const photoDescription = () => ({
   comments: getRandomArrayElement(comments),
 });
 
-Array.from({length: 25}, photoDescription); // log this
+console.log(Array.from({length: 25}, photoDescription)); // log this
