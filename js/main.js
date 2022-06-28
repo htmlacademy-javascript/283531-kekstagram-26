@@ -87,4 +87,4 @@ const photoDescription = () => ({
   comments: getRandomArrayElement(comments),
 });
 
-console.log(Array.from({length: 25}, photoDescription)); // log this
+Array.from({length: 25}, photoDescription); // log this
