@@ -6,10 +6,14 @@ import {
   getGenerateId
 } from './utils.js';
 import {avatars, descriptions, ids, messages, names, urls} from './mock_data.js';
+import {renderPhotoList} from './render.js';
 
 const NUM_OF_COMMENTS = 25;
 // 4.15. Больше деталей
-const comments = [];
+const commentsArr = [];
+
+const pictureList = document.querySelector('.pictures');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
 const generateComment = () => ({
   id: getGenerateId(),
@@ -19,9 +23,9 @@ const generateComment = () => ({
 });
 
 for (let i = 0; i < NUM_OF_COMMENTS; i++) {
-  comments[i] = [];
-  for (let j = 0; j < getRandomInteger(3, 10); j++) {
-    comments[i].push(generateComment());
+  commentsArr[i] = [];
+  for (let j = 0; j < getRandomInteger(3, 100); j++) {
+    commentsArr[i].push(generateComment());
   }
 }
 
@@ -30,6 +34,10 @@ const photoDescription = () => ({
   url: cutArrayElement(urls),
   description: getRandomArrayElement(descriptions),
   likes: getRandomInteger(15, 200),
-  comments: getRandomArrayElement(comments),
+  comments: getRandomArrayElement(commentsArr),
 });
-Array.from({length: 25}, photoDescription); // log this
+
+export const photos = Array.from({length: 25}, photoDescription);
+export const mainPhoto = Array.from({length: 1}, photoDescription);
+
+renderPhotoList(pictureList, pictureTemplate);
