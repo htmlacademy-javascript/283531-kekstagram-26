@@ -1,5 +1,6 @@
 import {photos} from './main.js';
 
+
 export const renderPhotoList = (pictureList, pictureTemplate) => {
   const pictureListFragment = document.createDocumentFragment();
 
