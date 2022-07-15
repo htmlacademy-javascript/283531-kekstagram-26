@@ -7,6 +7,15 @@ import {
 } from './utils.js';
 import {avatars, descriptions, ids, messages, names, urls} from './mock_data.js';
 import {renderPhotoList} from './render.js';
+import {
+  bodyModalClose,
+  removeCommentCount,
+  bigPictureOpen, appendInfo,
+  escFu,
+  bodyModalOpen,
+  removeLoader
+} from './main_photo.js';
+
 
 const NUM_OF_COMMENTS = 25;
 // 4.15. Больше деталей
@@ -41,3 +50,10 @@ export const photos = Array.from({length: 25}, photoDescription);
 export const mainPhoto = Array.from({length: 1}, photoDescription);
 
 renderPhotoList(pictureList, pictureTemplate);
+bigPictureOpen();
+appendInfo();
+escFu();
+bodyModalOpen();
+bodyModalClose();
+removeCommentCount();
+removeLoader();
