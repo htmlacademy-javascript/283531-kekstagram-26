@@ -1,5 +1,5 @@
 import {pictureComments, photos} from './main.js';
-import {openPhotoPopup} from './main_photo.js';
+import {openPhotoPopup} from './main-photo.js';
 
 
 export const renderPhotoList = (pictureList, pictureTemplate) => {

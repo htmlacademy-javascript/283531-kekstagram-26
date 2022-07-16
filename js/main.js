@@ -5,11 +5,11 @@ import {
   getGenerateStringFromArray,
   getGenerateId
 } from './utils.js';
-import {avatars, descriptions, ids, messages, names, urls} from './mock_data.js';
+import {avatars, descriptions, ids, messages, names, urls} from './mock-data.js';
 import {renderPhotoList} from './render.js';
 import {
   closePhotoPopup
-} from './main_photo.js';
+} from './main-photo.js';
 
 const pictureList = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
