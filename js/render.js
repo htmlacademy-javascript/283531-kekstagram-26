@@ -16,8 +16,10 @@ export const renderPhotoList = (pictureList, pictureTemplate) => {
       description
     };
 
-    pictureElement.addEventListener('click', openPhotoPopup(data));
 
+    pictureElement.addEventListener('click', () => {
+      openPhotoPopup(data);
+    });
 
     pictureListFragment.appendChild(pictureElement);
   });

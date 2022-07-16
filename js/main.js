@@ -8,7 +8,7 @@ import {
 import {avatars, descriptions, ids, messages, names, urls} from './mock_data.js';
 import {renderPhotoList} from './render.js';
 import {
-  openPhotoPopup, closePhotoPopup
+  closePhotoPopup
 } from './main_photo.js';
 
 
@@ -19,8 +19,8 @@ const commentsArr = [];
 const pictureList = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const commentsList = document.querySelector('.social__comments');
-const commentsItem = document.querySelector('.social__comment');
+// const commentsList = document.querySelector('.social__comments');
+// const commentsItem = document.querySelector('.social__comment');
 
 const generateComment = () => ({
   id: getGenerateId(),
@@ -49,10 +49,11 @@ export const photos = Array.from({length: 25}, photoDescription);
 
 
 renderPhotoList(pictureList, pictureTemplate);
-openPhotoPopup()();
+
 // renderComments(commentsList, commentsItem);
 document.addEventListener('keydown', (evt) => {
   if (evt.code === 'Escape') {
     closePhotoPopup();
   }
 });
+
