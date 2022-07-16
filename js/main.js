@@ -8,12 +8,7 @@ import {
 import {avatars, descriptions, ids, messages, names, urls} from './mock_data.js';
 import {renderPhotoList} from './render.js';
 import {
-  bodyModalClose,
-  removeCommentCount,
-  bigPictureOpen, appendInfo,
-  escFu,
-  bodyModalOpen,
-  removeLoader
+  openPhotoPopup, closePhotoPopup
 } from './main_photo.js';
 
 
@@ -24,12 +19,16 @@ const commentsArr = [];
 const pictureList = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
+const commentsList = document.querySelector('.social__comments');
+const commentsItem = document.querySelector('.social__comment');
+
 const generateComment = () => ({
   id: getGenerateId(),
   avatar: getRandomArrayElement(avatars),
   message: getGenerateStringFromArray(messages, 1, 2),
   name: getRandomArrayElement(names)
 });
+export const pictureComments = Array.from({length: 2}, generateComment);
 
 for (let i = 0; i < NUM_OF_COMMENTS; i++) {
   commentsArr[i] = [];
@@ -47,13 +46,13 @@ const photoDescription = () => ({
 });
 
 export const photos = Array.from({length: 25}, photoDescription);
-export const mainPhoto = Array.from({length: 1}, photoDescription);
+
 
 renderPhotoList(pictureList, pictureTemplate);
-bigPictureOpen();
-appendInfo();
-escFu();
-bodyModalOpen();
-bodyModalClose();
-removeCommentCount();
-removeLoader();
+openPhotoPopup()();
+// renderComments(commentsList, commentsItem);
+document.addEventListener('keydown', (evt) => {
+  if (evt.code === 'Escape') {
+    closePhotoPopup();
+  }
+});
