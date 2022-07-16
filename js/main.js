@@ -11,16 +11,11 @@ import {
   closePhotoPopup
 } from './main_photo.js';
 
-
+const pictureList = document.querySelector('.pictures');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const NUM_OF_COMMENTS = 25;
 // 4.15. Больше деталей
 const commentsArr = [];
-
-const pictureList = document.querySelector('.pictures');
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
-
-// const commentsList = document.querySelector('.social__comments');
-// const commentsItem = document.querySelector('.social__comment');
 
 const generateComment = () => ({
   id: getGenerateId(),
@@ -37,7 +32,7 @@ for (let i = 0; i < NUM_OF_COMMENTS; i++) {
   }
 }
 
-const photoDescription = () => ({
+const generatePhotoDescription = () => ({
   id: cutArrayElement(ids),
   url: cutArrayElement(urls),
   description: getRandomArrayElement(descriptions),
@@ -45,8 +40,7 @@ const photoDescription = () => ({
   comments: getRandomArrayElement(commentsArr),
 });
 
-export const photos = Array.from({length: 25}, photoDescription);
-
+export const photos = Array.from({length: 25}, generatePhotoDescription);
 
 renderPhotoList(pictureList, pictureTemplate);
 

@@ -25,8 +25,6 @@ export const renderPhotoList = (pictureList, pictureTemplate) => {
   });
 
   pictureList.appendChild(pictureListFragment);
-
-  console.log(pictureListFragment);
 };
 
 export const renderComments = (commentsList, commentsItem) => {
