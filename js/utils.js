@@ -49,15 +49,15 @@ export const cutArrayElement = (arr) => {
  * @return {*}
  */
 export const getGenerateStringFromArray = (arr, min, max) => {
-  const result = [];
-  const copyArr = [...arr];
+  const results = [];
+  const copyArrays = [...arr];
   const num = getRandomInteger(min, max);
 
   for (let i = 0; i < num; i++) {
-    result.push(...copyArr.splice(getRandomInteger(0, copyArr.length - 1), 1));
+    results.push(...copyArrays.splice(getRandomInteger(0, copyArrays.length - 1), 1));
   }
 
-  return result[0];
+  return results[0];
 };
 
 /**

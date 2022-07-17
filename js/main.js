@@ -5,15 +5,17 @@ import {
   getGenerateStringFromArray,
   getGenerateId
 } from './utils.js';
-import {avatars, descriptions, ids, messages, names, urls} from './mock_data.js';
+import {avatars, descriptions, ids, messages, names, urls} from './mock-data.js';
 import {renderPhotoList} from './render.js';
-
-const NUM_OF_COMMENTS = 25;
-// 4.15. Больше деталей
-const commentsArr = [];
+import {
+  closePhotoPopup
+} from './main-photo.js';
 
 const pictureList = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const NUM_OF_COMMENTS = 25;
+// 4.15. Больше деталей
+const commentsArr = [];
 
 const generateComment = () => ({
   id: getGenerateId(),
@@ -21,6 +23,7 @@ const generateComment = () => ({
   message: getGenerateStringFromArray(messages, 1, 2),
   name: getRandomArrayElement(names)
 });
+export const pictureComments = Array.from({length: 2}, generateComment);
 
 for (let i = 0; i < NUM_OF_COMMENTS; i++) {
   commentsArr[i] = [];
@@ -29,7 +32,7 @@ for (let i = 0; i < NUM_OF_COMMENTS; i++) {
   }
 }
 
-const photoDescription = () => ({
+const generatePhotoDescription = () => ({
   id: cutArrayElement(ids),
   url: cutArrayElement(urls),
   description: getRandomArrayElement(descriptions),
@@ -37,7 +40,14 @@ const photoDescription = () => ({
   comments: getRandomArrayElement(commentsArr),
 });
 
-export const photos = Array.from({length: 25}, photoDescription);
-export const mainPhoto = Array.from({length: 1}, photoDescription);
+export const photos = Array.from({length: 25}, generatePhotoDescription);
 
 renderPhotoList(pictureList, pictureTemplate);
+
+// renderComments(commentsList, commentsItem);
+document.addEventListener('keydown', (evt) => {
+  if (evt.code === 'Escape') {
+    closePhotoPopup();
+  }
+});
+
