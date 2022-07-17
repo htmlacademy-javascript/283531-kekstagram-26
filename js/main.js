@@ -11,8 +11,8 @@ import {
   closePhotoPopup
 } from './main-photo.js';
 
-const pictureList = document.querySelector('.pictures');
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const pictureListElement = document.querySelector('.pictures');
+const pictureTemplateElement = document.querySelector('#picture').content.querySelector('.picture');
 const NUM_OF_COMMENTS = 25;
 // 4.15. Больше деталей
 const commentsArr = [];
@@ -42,7 +42,7 @@ const generatePhotoDescription = () => ({
 
 export const photos = Array.from({length: 25}, generatePhotoDescription);
 
-renderPhotoList(pictureList, pictureTemplate);
+renderPhotoList(pictureListElement, pictureTemplateElement);
 
 // renderComments(commentsList, commentsItem);
 document.addEventListener('keydown', (evt) => {
