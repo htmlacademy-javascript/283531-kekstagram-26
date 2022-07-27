@@ -5,23 +5,23 @@ import {
   getGenerateStringFromArray,
   getGenerateId
 } from './utils.js';
-import {avatars, descriptions, ids, messages, names, urls} from './mock-data.js';
+import {AVATARS, DESCRIPTIONS, IDS, MESSAGES, NAMES, URLS} from './mock-data.js';
 import {renderPhotoList} from './render.js';
 import {
   closePhotoPopup
 } from './main-photo.js';
 
-const pictureList = document.querySelector('.pictures');
-const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const pictureListElement = document.querySelector('.pictures');
+const pictureTemplateElement = document.querySelector('#picture').content.querySelector('.picture');
 const NUM_OF_COMMENTS = 25;
 // 4.15. Больше деталей
 const commentsArr = [];
 
 const generateComment = () => ({
   id: getGenerateId(),
-  avatar: getRandomArrayElement(avatars),
-  message: getGenerateStringFromArray(messages, 1, 2),
-  name: getRandomArrayElement(names)
+  avatar: getRandomArrayElement(AVATARS),
+  message: getGenerateStringFromArray(MESSAGES, 1, 2),
+  name: getRandomArrayElement(NAMES)
 });
 export const pictureComments = Array.from({length: 2}, generateComment);
 
@@ -33,16 +33,16 @@ for (let i = 0; i < NUM_OF_COMMENTS; i++) {
 }
 
 const generatePhotoDescription = () => ({
-  id: cutArrayElement(ids),
-  url: cutArrayElement(urls),
-  description: getRandomArrayElement(descriptions),
+  id: cutArrayElement(IDS),
+  url: cutArrayElement(URLS),
+  description: getRandomArrayElement(DESCRIPTIONS),
   likes: getRandomInteger(15, 200),
   comments: getRandomArrayElement(commentsArr),
 });
 
 export const photos = Array.from({length: 25}, generatePhotoDescription);
 
-renderPhotoList(pictureList, pictureTemplate);
+renderPhotoList(pictureListElement, pictureTemplateElement);
 
 // renderComments(commentsList, commentsItem);
 document.addEventListener('keydown', (evt) => {
